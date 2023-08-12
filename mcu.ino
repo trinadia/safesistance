@@ -19,8 +19,8 @@ namespace {
 tflite::ErrorReporter* tflErrorReporter = nullptr; //ErrorReposter : public class
 const tflite::Model* tflModel = nullptr;
 tflite::MicroInterpreter* tflInterpreter = nullptr; //MicroInterpreter : 
-TfLiteTensor* input_tensor = nullptr;
-TfLiteTensor* output_tensor = nullptr;
+TfLiteTensor* inputTensor = nullptr;
+TfLiteTensor* outputTensor = nullptr;
 
 constexpr int tensorArenaSize = 8 * 1024;
 byte tensorArena[tensorArenaSize] __attribute__((aligned(16)));
@@ -73,8 +73,8 @@ void setup() {
   tflInterpreter->AllocateTensors();
 
   // --- INSPECTING INPUT TENSOR ---
-  input_tensor = tflInterpreter->input(0);
-  output_tensor = tflInterpreter->output(0);
+  inputTensor = tflInterpreter->input(0);
+  outputTensor = tflInterpreter->output(0);
 }
 
 void loop() {
@@ -107,17 +107,16 @@ void loop() {
 
       // --- RUNNING INFERENCE ON INPUT --- 
       // normalization
-      input_tensor->data.f[samplesRead * 6 + 0] = (aX + 4.0) / 8.0;
-      input_tensor->data.f[samplesRead * 6 + 1] = (aY + 4.0) / 8.0;
-      input_tensor->data.f[samplesRead * 6 + 2] = (aZ + 4.0) / 8.0;
-      input_tensor->data.f[samplesRead * 6 + 3] = (gX + 2000.0) / 4000.0;
-      input_tensor->data.f[samplesRead * 6 + 4] = (gY + 2000.0) / 4000.0;
-      input_tensor->data.f[samplesRead * 6 + 5] = (gZ + 2000.0) / 4000.0;
+      inputTensor->data.f[samplesRead * 6 + 0] = (aX + 4.0) / 8.0;
+      inputTensor->data.f[samplesRead * 6 + 1] = (aY + 4.0) / 8.0;
+      inputTensor->data.f[samplesRead * 6 + 2] = (aZ + 4.0) / 8.0;
+      inputTensor->data.f[samplesRead * 6 + 3] = (gX + 2000.0) / 4000.0;
+      inputTensor->data.f[samplesRead * 6 + 4] = (gY + 2000.0) / 4000.0;
+      inputTensor->data.f[samplesRead * 6 + 5] = (gZ + 2000.0) / 4000.0;
 
       samplesRead++;
 
       if (samplesRead == numSamples) {
-        // check that it succeeds
         TfLiteStatus invokeStatus = tflInterpreter->Invoke();
         if (invokeStatus != kTfLiteOk) {
           Serial.println("Invoke failed!");
@@ -129,7 +128,7 @@ void loop() {
         for (int i = 0; i < NUM_GESTURES; i++) {
           Serial.print(GESTURES[i]);
           Serial.print(": ");
-          Serial.println(tflOutputTensor->data.f[i], 6);
+          Serial.println(outputTensor->data.f[i], 6);
         }
         Serial.println();
       }
