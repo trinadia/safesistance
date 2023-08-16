@@ -3,7 +3,7 @@
 #include <UniversalTelegramBot.h>
 
 // Wifi network station and bot credentials
-// #include "config.h"
+#include "config.h"
 
 // #define WIFI_SSID "YOUR_SSID"
 // #define WIFI_PASSWORD "YOUR_PASSWORD"
