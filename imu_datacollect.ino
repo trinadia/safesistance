@@ -48,7 +48,7 @@ void loop() {
   Serial.print(a.acceleration.y, 3);
   Serial.print(",");
   Serial.print(a.acceleration.z, 3);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print(g.gyro.x, 3);
   Serial.print(",");
   Serial.print(g.gyro.y);
