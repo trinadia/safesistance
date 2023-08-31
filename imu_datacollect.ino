@@ -6,6 +6,9 @@
 
 Adafruit_MPU6050 mpu;
 
+const int numSamples = 119;
+int samplesRead = 0;
+
 void setup(void) {
   Serial.begin(115200);
   while (!Serial) {
@@ -25,33 +28,33 @@ void setup(void) {
   mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
   Serial.println("");
   delay(100);
+  Serial.println("aX,aY,aZ,gX,gY,gZ");
 }
 
 void loop() {
-
-  /* Get new sensor events with the readings */
   sensors_event_t a, g, temp;
+
+  if (samplesRead >= numSamples) {
+        // add an empty line if it's the last sample
+        samplesRead = 0;
+        Serial.println();
+  }
+  /* Get new sensor events with the readings */
   mpu.getEvent(&a, &g, &temp);
 
   /* Print out the values */
-  Serial.print("AccelX:");
-  Serial.print(a.acceleration.x);
+  Serial.print(a.acceleration.x, 3);
   Serial.print(",");
-  Serial.print("AccelY:");
-  Serial.print(a.acceleration.y);
+  Serial.print(a.acceleration.y, 3);
   Serial.print(",");
-  Serial.print("AccelZ:");
-  Serial.print(a.acceleration.z);
+  Serial.print(a.acceleration.z, 3);
   Serial.print(", ");
-  Serial.print("GyroX:");
-  Serial.print(g.gyro.x);
+  Serial.print(g.gyro.x, 3);
   Serial.print(",");
-  Serial.print("GyroY:");
   Serial.print(g.gyro.y);
   Serial.print(",");
-  Serial.print("GyroZ:");
   Serial.print(g.gyro.z);
   Serial.println("");
 
-  delay(10);
+  samplesRead++;
 }
