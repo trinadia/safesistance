@@ -30,7 +30,7 @@ namespace {
 }
 
 const char* GESTURES[] = {
-  "none",
+  "walk",
   "fall"
 };
 
