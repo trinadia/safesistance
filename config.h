@@ -3,8 +3,8 @@
 #define CONFIG_H
 
 // Wi-Fi credentials
-#define WIFI_SSID "Omah Nadhindra 01"
-#define WIFI_PASSWORD "YOUR_PASSWORD"
+#define WIFI_SSID "XXXXXX"
+#define WIFI_PASSWORD "XXXXXX"
 
 // Telegram BOT Token
 #define BOT_TOKEN "XXXXXXXXX:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
