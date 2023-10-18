@@ -4,8 +4,8 @@ Safesistance adalah sebuah alat berbentuk gelang yang dipasangkan pada lengan un
 
 ### Files
 - [Jupyter Notebook: Model Training](https://github.com/trinadia/safesistance/blob/main/safesistance_train_model.ipynb)
-- [Model in .h file]()
-- [Arduino sketch: Deployment in Arduino]{}
+- [Model in .h file](https://github.com/trinadia/safesistance/blob/main/model/model%20(2).h)
+- [Arduino sketch: Deployment in Arduino](https://github.com/trinadia/safesistance/blob/main/imu_datacollect_withspace.ino)
 ### Komponen Perangkat Keras
 1. Waistband
 2. Bot Telegram
