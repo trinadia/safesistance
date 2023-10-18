@@ -2,7 +2,11 @@
 
 Safesistance adalah sebuah alat berbentuk gelang yang dipasangkan pada lengan untuk membantuk mendeteksi gerakan jatuh pada pengguna dan gestur meminta pertolongan (SOS), di mana sinyal ini akan direspon dengan notifikasi dari chatbot di smartphone. Cara kerja dari alat ini adalah sensor gyroscope dan accelerometer dihubungkan dengan mikrokontroler untuk proses ekstraksi data, kemudian data tersebut diolah dan melalui proses _training_ dengan model Deep Learning. Penggunaan Deep Learning ini adalah untuk "mengenali" gerakan si pengguna yang nantinya akan memberi _output_ berupa klasifikasi gerakan.  
 
-### Komponen
+### Files
+- Jupyter Notebook: Model Training
+- Model in .h file
+- Arduino sketch: Deployment in Arduino
+### Komponen Perangkat Keras
 1. Waistband
 2. Bot Telegram
 
