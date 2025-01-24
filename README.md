@@ -1,6 +1,6 @@
 ### Deskripsi
 
-Safesistance adalah sebuah alat berbentuk gelang yang dipasangkan pada lengan untuk membantuk mendeteksi gerakan jatuh pada pengguna dan gestur meminta pertolongan (SOS), di mana sinyal ini akan direspon dengan notifikasi dari chatbot di smartphone. Cara kerja dari alat ini adalah sensor gyroscope dan accelerometer dihubungkan dengan mikrokontroler untuk proses ekstraksi data, kemudian data tersebut diolah dan melalui proses _training_ dengan model Deep Learning. Penggunaan Deep Learning ini adalah untuk "mengenali" gerakan si pengguna yang nantinya akan memberi _output_ berupa klasifikasi gerakan.  
+Safesistance is a device worn on the arm to help detect falling motions and SOS gestures from the user. These signals are responded to with notifications from a chatbot on a smartphone. The device operates by connecting gyroscope and accelerometer sensors to a microcontroller for data extraction. The extracted data is then processed and trained using a Deep Learning model. The purpose of using Deep Learning is to "recognize" the user's movements, which will produce an output in the form of motion classification.
 
 ### Files
 - [Jupyter Notebook: Model Training](https://github.com/trinadia/safesistance/blob/main/safesistance_train_model.ipynb)
